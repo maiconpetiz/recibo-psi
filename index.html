@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Recibos</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="recibo-online.js"></script>
+    <script src="https://kit.fontawesome.com/a7719daf75.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="recibo">
+        <h1 id="titulo">Recibo Online</h1>
+    </div>
+    <form>
+        <fieldset id="fieldset">
+            <label>Nome do Paciente:</label>
+            <br>
+            <input type="text" name="nome" id="nome">
+            <br>
+            <label>CPF do Paciente:</label>
+            <br>
+            <input oninput="mascara(this)" type="text" name="cpf" id="cpf">
+            <br>
+            <label>Valor da sessão R$:</label>
+            <br>
+            <input id="valor" type="text" size="12" onKeyUp="mascaraMoeda(this, event)">
+            <br>
+            <div id=qtde-recibo>
+              <div>
+                <label for="qtde">Qtde de sessões:
+                <input type="number" name="qtde" id="qtde"></label>
+              </div>
+              <div>
+                <label for="num-recibo">N° do Recibo:
+                <input type="number" name="num-recibo" id="num-recibo"></label>
+              </div>  
+          </div>
+          <div id="datas">
+            <div>
+              <label for="data">1ª Sem.:
+              <input type="date" name="data" id="data1"></label>
+            </div>
+            <div>
+              <label for="data">2ª Sem.:
+              <input type="date" name="data" id="data2"></label>
+            </div>
+            <div>
+              <label for="data">3ª Sem.:
+              <input type="date" name="data" id="data3"></label>
+            </div>
+            <div>
+              <label for="data">4ª Sem.:
+              <input type="date" name="data" id="data4"></label>
+            </div>
+          </div>
+
+            <br>
+            <button type="button" onclick="gerarRecibo()" id="btn">Gerar Recibo</button>
+        </fieldset>
+    </form>
+
+    <div class="print">
+        <div id="num_recibo">
+          N° <span
+                id="recibo-num" class="negrito"></span>
+        </div>
+        <h1 id="recibo">Recibo</h1>
+        <p class="paragrafo"> Eu, <span class="negrito">Maiara do Nascimento Lima Petiz, CRP 07/37900 e CPF: 029.887.263-37</span>, declaro que recebi de <span
+                id="nome_paciente" class="negrito"></span>, <span class="negrito">CPF n° </span><span
+                id="documento" class="negrito"></span>, o valor de <span class="negrito">R$</span> <span id="valor_total" class="negrito"></span>
+             referente à <span id="qtd" class="negrito"></span> <span class="negrito">sessão(ões) de psicoterapia</span>, realizada(s) na(s) data(s) listadas a seguir: 
+             <span id="1data" class="negrito"></span>
+             <span id="2data" class="negrito"></span>
+             <span id="3data" class="negrito"></span>
+             <span id="4data" class="negrito"></span></p>
+    </div>
+    <div class="assign">
+      Assinatura
+    </div>
+    <div class="moment">
+      Emitido em Gravataí, <span id="data"></span> às <span id="hora"></span>
+    </div>
+
+    <footer>
+        <div class="footer-box">
+            <h1>Desenvolvido por:</h1>
+            <h2>Maicon Petiz</h2>
+            <ul class="socials">
+                <li><a href="https://www.linkedin.com/in/maiconpetiz/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/maiconpetiz"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
